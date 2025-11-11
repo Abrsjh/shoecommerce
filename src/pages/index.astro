@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Features from '../components/Features.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
+
+const products = [
+  {
+    name: 'Air Max Zenith',
+    price: 189.99,
+    category: 'Running',
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Urban Walker Pro',
+    price: 129.99,
+    category: 'Casual',
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Elite Sprint X',
+    price: 219.99,
+    category: 'Sports',
+    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Classic Canvas',
+    price: 79.99,
+    category: 'Lifestyle',
+    image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Velocity Racer',
+    price: 159.99,
+    category: 'Running',
+    image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Street Style High',
+    price: 149.99,
+    category: 'Fashion',
+    image: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Comfort Slide',
+    price: 59.99,
+    category: 'Slides',
+    image: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=600&q=80',
+    link: '#'
+  },
+  {
+    name: 'Performance Trainer',
+    price: 199.99,
+    category: 'Training',
+    image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80',
+    link: '#'
+  }
+];
+---
+
+<Layout title="SoleStride - Premium Shoe Store">
+  <Header />
+  
+  <main class="pt-16">
+    <Hero />
+    
+    <!-- Featured Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Featured Collection
+          </h2>
+          <p class="text-xl text-gray-600">
+            Discover our hand-picked selection of premium footwear
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map(product => (
+            <ProductCard 
+              name={product.name}
+              price={product.price}
+              category={product.category}
+              image={product.image}
+              link={product.link}
+            />
+          ))}
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="#" class="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-secondary transition-colors inline-block">
+            View All Products
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Brand Showcase -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-primary mb-4">Shop By Brand</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
+            <span class="text-2xl font-bold text-gray-400">NIKE</span>
+          </div>
+          <div class="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
+            <span class="text-2xl font-bold text-gray-400">ADIDAS</span>
+          </div>
+          <div class="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
+            <span class="text-2xl font-bold text-gray-400">PUMA</span>
+          </div>
+          <div class="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
+            <span class="text-2xl font-bold text-gray-400">VANS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <Features />
+    <Newsletter />
+  </main>
+  
+  <Footer />
+</Layout>
